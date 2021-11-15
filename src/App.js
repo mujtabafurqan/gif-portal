@@ -9,7 +9,7 @@ import idl from './idl.json';
 import kp from './keypair.json'
 
 
-const { SystemProgram, Keypair } = web3;
+const { SystemProgram } = web3;
 const arr = Object.values(kp._keypair.secretKey);
 const secret = new Uint8Array(arr);
 const baseAccount = web3.Keypair.fromSecretKey(secret);
@@ -188,7 +188,7 @@ const App = () => {
             {/* We use index as the key instead, also, the src is now item.gifLink */}
             {gifList.map((item, index) => (
               <div className="gif-item" key={index}>
-                <img src={item.gifLink} />
+                <img src={item.gifLink} alt=""/>
                 <div className="address">{item.userAddress.toString()}</div>
                 {/* <div className="address"> Upvotes: {item.votes}</div> */}
                 <button className="cta-button" onClick={() => upvoteGif(item.gifLink)}> Upvote </button>
